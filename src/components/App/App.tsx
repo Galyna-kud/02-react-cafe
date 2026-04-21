@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import CafeInfo from '../CafeInfo/CafeInfo'
-import css from './App.module.css';
 import type { VoteType, Votes } from '../../types/votes';
 import VoteOptions from '../VoteOptions/VoteOptions';
 import VoteStats from '../VoteStats/VoteStats';
 import Notification from '../Notification/Notification';
+import 'modern-normalize/modern-normalize.css';
+import css from './App.module.css';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   })
 
   const handleVote = (type: VoteType) => {
-    setVotes(prevVotes => ({
+    setVotes((prevVotes: Votes) => ({
       ...prevVotes,
       [type]: prevVotes[type] + 1,
     }))
